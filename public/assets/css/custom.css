@@ -1,0 +1,189 @@
+/* ============================================================
+   SABAA ASFAR - Custom Theme
+   Gradient Primary: #0bb275 → #25acc1
+   ============================================================ */
+
+
+/* ===============================
+   1. Root Variables
+================================= */
+:root {
+    --tp-theme-1: #24acbd;
+    --tp-theme-2: #25acc1;
+    --tp-gradient-primary: linear-gradient(to right, #0bb275, #25acc1);
+}
+
+
+/* ===============================
+   2. Primary Button (.tp-btn)
+   Uses Gradient
+================================= */
+.tp-btn {
+    background: var(--tp-gradient-primary) !important;
+    border: none !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+
+.tp-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    color: #000000 !important;   /* Black text on hover */
+}
+
+/* ===============================
+   3. Secondary Button (.tp-btn-2)
+   Uses Dark Transparent Background
+================================= */
+.tp-btn-2 {
+    background-color: rgba(10, 10, 10, 0.7) !important;
+    border: none !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+
+.tp-btn-2:hover {
+    background-color: rgba(10, 10, 10, 0.85) !important;
+    transform: translateY(-2px);
+    
+    color: #000000 !important;   /* Black text on hover */
+}
+
+
+/* ===============================
+   4. Menu Hover / Active
+================================= */
+.tp-main-menu ul li a:hover,
+.tp-main-menu ul li.active > a {
+    color: var(--tp-theme-1) !important;
+}
+
+
+/* ===============================
+   5. Section Highlights
+================================= */
+.tp-section-title span,
+.tp-section-title::before,
+.tp-section-title::after {
+    background: var(--tp-gradient-primary) !important;
+}
+
+
+/* ===============================
+   6. Icon Color
+================================= */
+.tp-feature-icon i,
+.tp-service-icon i,
+.tp-contact-icon i {
+    color: var(--tp-theme-1) !important;
+}
+
+
+/* ===============================
+   7. Optional Footer Gradient
+================================= */
+.tp-footer-area {
+    background: var(--tp-gradient-primary);
+    color: #ffffff;
+}
+.footer__text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #b4b8bb;
+}
+.footer__contact-info {
+    margin-bottom: 20px;
+}
+
+.footer__contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #b4b8bb;
+}
+
+.footer__contact-item i {
+    margin-right: 12px;
+    font-size: 16px;
+
+    /* Gradient Icon */
+    background: var(--tp-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.footer__contact-item a {
+    color: #25acc1;
+    text-decoration: none;
+}
+
+.footer__contact-item a:hover {
+    text-decoration: underline;
+}
+/* Default Gradient */
+.footer__social-icon a i {
+    background: var(--tp-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    transition: 0.3s ease;
+}
+
+/* Hover → White */
+.footer__social-icon a:hover i {
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+    color: #ffffff;
+}
+
+.project__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: var(--tp-gradient-primary);
+    border-radius: 6px;
+}
+
+.project__meta-item {
+    text-align: center;
+    flex: 1;
+}
+
+.project__meta-item span {
+    display: block;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+
+
+.project__meta {
+    display: flex;
+    gap: 60px;                 /* space between items */
+    align-items: center;
+    flex-wrap: wrap;           /* responsive */
+    margin-top: 20px;
+}
+
+.project__meta-item {
+    min-width: 150px;
+}
+
+.project__meta-item span {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.project__meta-item h6 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--tp-common-white);
+    margin: 0;
+}
