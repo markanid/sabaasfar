@@ -134,7 +134,7 @@
                         <div class="col-xl-8">
                            <div class="company__sm-about text-center">
                               <span class="animate"><img src="{{ asset('assets/img/about/icon.png') }}" style="height: 190px; width: 190px; margin-top: -33px; margin-left: -38px;"></span>
-                              <p>{{ $about->mission ?? '' }}</p>
+                              <p>{{ $about->health_safety ?? '' }}</p>
                            </div>
                         </div>
                      </div>

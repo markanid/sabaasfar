@@ -61,7 +61,7 @@
                             </td>
                             <td>
                                 <span>Our Journey :</span>
-                                <label>{{ !empty($about->our_journey) ? $about->our_journey : '' }}</label>
+                                <label>{!! !empty($about->our_journey) ? $about->our_journey : '' !!}</label>
                             </td>
                             <td>
                                 <span>Vision :</span>

@@ -149,7 +149,7 @@
                         </div>
                      </div>
                      <p class="sm-text mb-15">{{ $about->mission ?? '' }}</p>
-                     <p class="abd-text">{{ $about->our_journey ?? '' }}</p>
+                     <p class="abd-text">{!! $about->our_journey ?? '' !!}</p>
                      <div class="ab-button mb-10">
                         <a href="{{ route('users.aboutus') }}" class="tp-btn-d">Learn More</a>
                      </div>

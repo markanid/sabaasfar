@@ -137,6 +137,11 @@ $(function () {
         $(this).siblings('.custom-file-label').addClass("selected").html(fileName);
     });
     
+    // Summernote
+    $('#our_journey').summernote({
+        height: 170 // Set height in pixels (adjust as needed)
+    });
+    
     $.validator.setDefaults({
         submitHandler: function (form) {
             $('#submitBtn').prop('disabled', true); // Disable the submit button
