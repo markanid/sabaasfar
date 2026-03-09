@@ -1,50 +1,7 @@
 <x-userlayout :services="$services"> 
  
       <main>
-         <style>
-         /* Make grid cards equal height */
-         .services__item-grid{
-            height: 360px;                /* adjust as needed */
-            display: flex;
-            flex-direction: column;
-         }
-
-         /* Make content fill and keep bottom link aligned */
-         .services__item-grid .services__item-content{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-         }
-
-         /* Keep description area controlled */
-         .services__item-grid p{
-            flex: 1;                      /* takes remaining space */
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;        /* number of lines */
-         }
-
-         /* Always keep button at bottom */
-         .services__item-grid .ser__more-option{
-            margin-top: auto;
-         }
-         /* Center and size icons */
-         .services__item-grid .ser__icon{
-            width: 100%;
-            height: 120px;      /* adjust if needed */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-         }
-
-         .services__item-grid .ser__icon img{
-            width: 150px;        /* icon size */
-            height: 150px;
-            object-fit: contain;
-         }
-         </style>
+         
       <!-- slider-area-start  -->
       <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="{{ asset('assets/img/bg/page-bg.jpg')}}">
          <div class="container">

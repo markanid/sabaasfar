@@ -1,23 +1,5 @@
 <x-userlayout :about="$about"> 
       <main>
-         <style>
-            .team__item-grid-thumb {
-               position: relative;
-               overflow: hidden;
-            }
-
-            .team__item-grid-thumb a {
-               display: block;
-            }
-
-            .team-member-img {
-               width: 100%;
-               height: 350px;
-               object-fit: cover;
-               object-position: center;
-               display: block;
-            }
-         </style>
 
       <!-- slider-area-start  -->
       <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="{{ asset('assets/img/bg/page-bg.jpg') }}">
@@ -73,7 +55,7 @@
                            <span>about us</span>
                         </div>
                      </div>
-                     <p class="sm-text mb-10">{!! $about->mission ?? '' !!}</p>
+                     <p class="sm-text mb-10">{!! $about->glimbse ?? '' !!}</p>
                      <p class="abd-text">{!! $about->our_journey ?? '' !!}</p>
                         
                      
