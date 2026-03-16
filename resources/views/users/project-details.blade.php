@@ -1,9 +1,9 @@
-<x-userlayout > 
+<x-userlayout :project="$project"> 
  
       <main>
 
       <!-- slider-area-start  -->
-      <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background=" {{ asset('assets/img/bg/page-bg.jpg') }}">
+      <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background=" {{ asset('assets/img/bg/project.webp') }}">
          <div class="container">
             <div class="row">
                <div class="col-xxl-12">

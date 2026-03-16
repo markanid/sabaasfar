@@ -58,7 +58,7 @@
                         <tr>
                             <td colspan="12">
                                 <span>Description :</span>
-                                <label>{!! !empty($sliders->description) ? $sliders->description : '' !!}</label>
+                                <label>{{ !empty($sliders->description) ? $sliders->description : '' }}</label>
                             </td>
                         </tr>
                     </tbody>

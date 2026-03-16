@@ -46,7 +46,7 @@ class ProjectController extends Controller
                 'description'   => 'required|string|max:500',
                 'image'         => 'image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:10240', // 10MB
                 'image_alt'     => 'required|string|max:500', 
-                'keywords'      => 'nullable|string',
+                'keyword'       => 'nullable|string',
             ]);
         } catch (ValidationException $e) {
             dd($e->errors());

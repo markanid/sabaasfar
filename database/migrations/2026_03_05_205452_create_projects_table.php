@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('image_alt')->nullable();
-            $table->string('keywords')->nullable();
+            $table->string('keyword')->nullable();
             $table->timestamps();
         });
     }

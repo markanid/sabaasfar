@@ -2006,7 +2006,7 @@ input[type=color] {
   font-family: "Font Awesome 6 Pro";
 }
 .main-menu ul li a {
-  color: var(--tp-grey-2);
+  color: var(--tp-common-white);
   font-size: 16px;
   line-height: 20px;
   padding: 40px 0;
@@ -2219,6 +2219,7 @@ input[type=color] {
   font-size: 12px;
   display: inline-block;
   font-weight: var(--tp-fw-sbold);
+  color: var(--tp-theme-1);
 }
 .header-info .info-item h5 {
   font-size: 14px;
@@ -4450,7 +4451,7 @@ input[type=color] {
   margin-bottom: 0;
 }
 .feature__list ul li:hover {
-  background: var(--tp-theme-1);
+  background: var(--tp-gradient-primary);
   transform: translateX(15px);
 }
 @media only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {

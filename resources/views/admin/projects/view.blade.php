@@ -62,7 +62,7 @@
                         </td>
                         <td>
                             <span>Keyword :</span>
-                            <label>{{ $project->keywords ?? '' }}</label>
+                            <label>{{ $project->keyword ?? '' }}</label>
                         </td>
                         <td>
                             <span>Image Alt-Tag :</span>

@@ -23,8 +23,8 @@ class UserPageController extends Controller
 {
     public function home() {
         return view("users.home", [
-            'sliders'       => Slider::latest()->get(),
-            'f_services'    => Service::where('featured', true)->latest()->get(),
+            'sliders'       => Slider::oldest()->get(),
+            // 'f_services'    => Service::where('featured', true)->latest()->get(),
             'projects'      => Project::where('featured', true)->latest()->get(),
             'clients'       => Client::latest()->get(),
             'testimonials'  => Testimonial::whereNotNull('message')->latest()->get(),
@@ -108,7 +108,7 @@ class UserPageController extends Controller
         }
 
         try {
-            Mail::to('info@apexsoftlabs.com')->send(new ContactFormMail($request->all()));
+            Mail::to('info@sabaasfar-sa.com')->send(new ContactFormMail($request->all()));
             return redirect()->back()->with('success_message', 'Your message has been sent successfully.');
         } catch (\Exception $e) {
             Log::error('Mail Send Error: ' . $e->getMessage());

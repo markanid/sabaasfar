@@ -249,3 +249,31 @@
    object-position: center;
    display: block;
 }
+
+/* make all slides same height */
+.services__wrapper .single-services{
+height: 320px;               /* adjust as needed */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 25px;
+}
+
+/* limit description area */
+.services__wrapper .single-services .services-list{
+overflow: hidden;
+flex: 1;
+}
+
+/* clamp to fixed lines (optional better look) */
+.services__wrapper .single-services .services-list p{
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 4;       /* change lines based on height */
+overflow: hidden;
+}
+
+/* keep button at bottom */
+.services__wrapper .single-services .sr-button{
+margin-top: auto;
+}

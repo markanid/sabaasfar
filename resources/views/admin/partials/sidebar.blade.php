@@ -58,13 +58,13 @@ $current_route = request()->route()->getName();
              <p>About</p>
            </a>
          </li>
-
+{{-- 
          <li class="nav-item">
            <a href="{{route('features.index')}}" class="nav-link {{ menuActive(['features.index', 'features.create', 'features.edit', 'features.show'], 'active') }}">
            <i class="nav-icon fas fa-feather-alt"></i>
              <p>Features</p>
            </a>
-         </li>
+         </li> --}}
 
          <li class="nav-item">
            <a href="{{route('services.index')}}" class="nav-link {{ menuActive(['services.index', 'services.create', 'services.edit', 'services.show'], 'active') }}">
@@ -93,13 +93,13 @@ $current_route = request()->route()->getName();
              <p>Testimonial</p>
            </a>
          </li>
-
+{{-- 
          <li class="nav-item">
            <a href="{{route('blogs.index')}}" class="nav-link {{ menuActive(['blogs.index', 'blogs.create', 'blogs.edit', 'blogs.show'], 'active') }}">
            <i class="nav-icon far fa-newspaper"></i>
              <p>Blogs</p>
            </a>
-         </li>
+         </li> --}}
          
           <li class="nav-item">
             <a href="{{route('teams.index')}}" class="nav-link {{ menuActive(['teams.index', 'teams.create', 'teams.edit', 'teams.show'], 'active') }}">

@@ -1,11 +1,81 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
+      @php
+      use Illuminate\Support\Str;
+      if (!empty($metadata)) {   
+        $isHome                 = request()->routeIs('users.home');
+        $isAbout                = request()->routeIs('users.aboutus');
+        $isServices             = request()->routeIs('users.services');
+        $isServiceDetails       = request()->routeIs('users.servicedetails');
+        $isProjects             = request()->routeIs('users.projects');
+        $isProjectDetails       = request()->routeIs('users.projectdetails');
+        $isContact              = request()->routeIs('users.contactus');
+        $firstPart              = Str::of($metadata->title)->before('|')->trim();
+        $logoUrl                = asset('storage/meta_datas/' . $metadata->og_image);
+        $item = $isServiceDetails && isset($service) ? $service : ($isProjectDetails && isset($project) ? $project : null);
+        if ($item) {
+          // Determine title
+          $title = $item->meta_title ?? 
+          ($item->heading ?? 
+          ($item->name ?? ''));
+          // Determine description
+          $description = $item->description ?? 
+          ($item->meta_description ?? 
+          ($item->heading ?? ''));
+          // Determine keywords
+          $keyword = $item->keyword ?? '';
+          // Determine image path
+          $folder          = $isServiceDetails ? 'services' : ($isProjectDetails ? 'projects' : null);
+          $imagePath       = $item->image ?? null;
+          $pageImage       = $imagePath ? asset("storage/{$folder}/{$imagePath}") : $logoUrl;
+          $pageTitle       = trim($firstPart . ' | ' . $title);
+          $pageDescription = $description;
+          $pageKeyword     = $keyword;
+        } else {
+          $pageTitle      = $metadata->title;
+          $pageDescription= $metadata->desciption; 
+          $pageKeyword    = $metadata->keyword; 
+          $pageImage      = $logoUrl;
+        }
+        // Final fallback in case title or description is empty
+        $pageTitle      = $pageTitle ?: $metadata->title;
+        $pageDescription= $pageDescription ?: $metadata->desciption;
+        $pageKeyword    = $pageKeyword ?: $metadata->keyword;
+        // Append route-specific title suffix
+        if ($isHome) {
+          $pageTitle = $firstPart . ' | Home';
+        } elseif ($isAbout) {
+          $pageTitle = $firstPart . ' | About Us';
+        } elseif ($isServices) {
+          $pageTitle = $firstPart . ' | Services';
+        } elseif ($isProjects) {
+          $pageTitle = $firstPart . ' | Projects';
+        } elseif ($isContact) {
+          $pageTitle = $firstPart . ' | Contact Us';
+        }
+      } else {
+        // Provide sensible defaults in case $metadata is null
+        $pageTitle      = 'SABAA ASFAR FOR CONTRACTING Est.';
+        $pageDescription= 'Default Description';
+        $pageKeyword    = 'Default Keyword';
+        $pageImage      = asset('default-image.jpg'); // Replace with a real fallback image path
+      }
+      @endphp 
+
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>SABAA ASFAR FOR CONTRACTING Est.</title>
-      <meta name="description" content="">
+      <title>{{ $pageTitle }}</title>
+      <meta name="description" content="{{ $pageDescription }}">
+      <meta name="keywords" content="{{ $pageKeyword }}">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="robots" content="index, follow">
+      <link rel="canonical" href="{{ url()->current() }}" />
+      <meta property="og:title" content="{{ $pageTitle }}" />
+      <meta property="og:description" content="{{ $pageDescription }}" />
+      <meta property="og:image" content="{{ $pageImage }}" alt="OG Image" />
+      <meta property="og:url" content="{{ url()->current() }}" />
+      <meta property="og:type" content="website" />
       <!-- Place favicon.ico in the root directory -->
       <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}">
       <!-- CSS here -->
@@ -54,7 +124,7 @@
                      </div>
                   </div>
                </div>
-               <div class="col-xl-7 col-lg-6 col-md-6 col-6">
+               <div class="col-xl-6 col-lg-6 col-md-6 col-6">
                   <div class="menu-area menu-padding">
                      <div class="main-menu">
                         <nav id="mobile-menu">
@@ -72,7 +142,7 @@
                      <a href="javascript:void(0)" class="info-toggle-btn f-right sidebar-toggle-btn"><i class="fal fa-bars"></i></a>
                   </div>
                </div>
-               <div class="col-xl-3 col-lg-4 d-none d-lg-block">
+               <div class="col-xl-4 col-lg-4 d-none d-lg-block">
                   <div class="header-info f-right">
                      <div class="info-item info-item-right">
                         <span>Phone Number</span>
@@ -197,7 +267,7 @@
                         <div class="footer__widget-content">
                            <div class="footer__links">
                               <ul>
-                                 @foreach ($services as $service)
+                                 @foreach ($f_services as $service)
                                     <li><a href="{{ route('users.servicedetails', ['slug' => $service->slug]) }}">{{ $service->name }}</a></li>
                                  @endforeach
                               </ul>

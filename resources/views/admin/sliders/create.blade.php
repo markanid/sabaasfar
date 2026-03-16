@@ -33,8 +33,18 @@
                 
                <div class="col-md-12">
                    <div class="form-group">
+                       <label>Slider Heading<sup>*</sup></label>
+                       <input type="text" name="header" id="header" tabindex="1" class="form-control" value="{{ !empty($slider->header) ? $slider->header : '' }}">
+                       @if ($errors->has('header'))
+                         <span class="text-danger">{{ $errors->first('header') }}</span>
+                       @endif
+                   </div>
+               </div>
+                
+               <div class="col-md-12">
+                   <div class="form-group">
                        <label>Slider Description<sup>*</sup></label>
-                       <textarea name="description" id="description" tabindex="1" class="form-control">{{ !empty($slider->description) ? $slider->description : '' }}</textarea>
+                       <textarea name="description" id="description" tabindex="2" class="form-control">{{ !empty($slider->description) ? $slider->description : '' }}</textarea>
                        @if ($errors->has('description'))
                          <span class="text-danger">{{ $errors->first('description') }}</span>
                        @endif
@@ -53,7 +63,7 @@
                         </div><br>
     					<div class="input-group">
     						<div class="custom-file">
-    							<input type="file" class="custom-file-input" id="customFile2" tabindex="2" name="slider">
+    							<input type="file" class="custom-file-input" id="customFile2" tabindex="3" name="slider">
     							<label class="custom-file-label" for="customFile">Choose file</label>
     						</div>
     						
@@ -67,8 +77,8 @@
             </div>
         </div>
         <div class="card-footer" align="center">
-            <button type="submit" id="submitBtn" tabindex="3" class="btn btn-primary  btn-flat"><i class="fas fa-save"></i> Save</button>
-            <button type="reset" value="Reset" id="resetbtn" tabindex="p" class="btn btn-secondary  btn-flat"><i class="fas fa-undo-alt"></i> Reset</button>
+            <button type="submit" id="submitBtn" tabindex="4" class="btn btn-primary  btn-flat"><i class="fas fa-save"></i> Save</button>
+            <button type="reset" value="Reset" id="resetbtn" tabindex="5" class="btn btn-secondary  btn-flat"><i class="fas fa-undo-alt"></i> Reset</button>
         </div>
     </form>
 </div>
@@ -102,19 +112,6 @@ $(function () {
             form.submit();
         }
     });
-
-    $(function () {
-    // Summernote
-        $('#description').summernote({
-            height: 170 // Set height in pixels (adjust as needed)
-        });
-
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-        mode: "htmlmixed",
-        theme: "monokai"
-        });
-    })
 
     $('#bannerForm').validate({
         rules: {},

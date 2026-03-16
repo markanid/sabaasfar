@@ -3,8 +3,8 @@
       <main>
          
       <!-- slider-area-start  -->
-      <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="{{ asset('assets/img/bg/page-bg.jpg')}}">
-         <div class="container">
+      <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="{{ asset('assets/img/bg/services.webp')}}">
+         <div class="container"> 
             <div class="row">
                <div class="col-xxl-12">
                   <div class="page__title-wrapper mt-100">                  
@@ -34,9 +34,9 @@
                               <img src="{{ asset('storage/services/' . $service->image) }}" alt="{{ $service->image_alt_tag }}">
                            </div>
                            <h5 class="ser__title mb-10"><a href="{{ route('users.servicedetails', ['slug' => $service->slug]) }}">{{ $service->name }}</a></h5>
-                           <p>{{ Str::words(strip_tags($service->description), 20, '...') }}</p>
+                           <p>{{ Str::words(strip_tags($service->description), 30, '...') }}</p>
                            <div class="ser__more-option mt-15">
-                              <a href="{{ route('users.servicedetails', ['slug' => $service->slug]) }}">Service Details <i class="fal fa-long-arrow-right"></i></a>
+                              <a href="{{ route('users.servicedetails', ['slug' => $service->slug]) }}">More Details <i class="fal fa-long-arrow-right"></i></a>
                            </div>
                         </div>
                      </div>

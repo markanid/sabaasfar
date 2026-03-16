@@ -4,14 +4,14 @@
       <main>
 
       <!-- slider-area-start  -->
-      <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="assets/img/bg/page-bg.jpg">
+      <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center" data-background="{{ asset('assets/img/bg/conatct.webp') }}">
          <div class="container">
             <div class="row">
                <div class="col-xxl-12">
                   <div class="page__title-wrapper mt-100">                  
                      <div class="breadcrumb-menu">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{ route('users.home') }}">Home</a></li>
                             <li><span>Contact</span></li>
                         </ul>
                     </div>
@@ -125,7 +125,7 @@
                         </div>
                      </div>
                      <div class="col-xl-12">
-                        <form id="contact-form" action="mail.php" method="POST">
+                        <form id="contact-form" action="{{ route('send.email') }}" method="POST">
                            <div class="row">
                               <div class="col-lg-6">
                                  <div class="contact-filed mb-20">

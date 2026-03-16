@@ -1,34 +1,6 @@
 <x-userlayout :services="$services" :about="$about" :contact="$contact"> 
       <main>
-         <style>
-         /* make all slides same height */
-         .services__wrapper .single-services{
-            height: 320px;               /* adjust as needed */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 25px;
-         }
 
-         /* limit description area */
-         .services__wrapper .single-services .services-list{
-            overflow: hidden;
-            flex: 1;
-         }
-
-         /* clamp to fixed lines (optional better look) */
-         .services__wrapper .single-services .services-list p{
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 4;       /* change lines based on height */
-            overflow: hidden;
-         }
-
-         /* keep button at bottom */
-         .services__wrapper .single-services .sr-button{
-            margin-top: auto;
-         }
-         </style>
       <!-- slider-area-start  -->
       <section class="slider-area fix">
          <div class="swiper main-slider swiper-container swiper-container-fade">
@@ -40,12 +12,12 @@
                         <div class="row ">
                            <div class="col-lg-12">
                               <div class="slider-contant mt-25">
-                                 <span data-animation="fadeInUp" data-delay=".3s">{{ $slider->header }}</span>
-                                 <h2 class="slider-title" data-animation="fadeInUp" data-delay=".6s">{!! $slider->slider_label !!}</h2> 
-                                 <div class="slider-button" data-animation="fadeInUp" data-delay=".9s">
+                                 <h2 class="slider-title" data-animation="fadeInUp" data-delay=".9s">{{ $slider->header }}</h2> 
+                                 <span data-animation="fadeInUp" data-delay=".8s">{{ $slider->description }}</span>
+                                 {{-- <div class="slider-button" data-animation="fadeInUp" data-delay=".9s">
                                     <a href="{{ route('users.services') }}" class="tp-btn mr-30">Our Services <i class="fal fa-angle-right"></i></a>
                                     <a href="{{ route('users.aboutus') }}" class="tp-btn-2">Learn More</a>
-                                 </div>
+                                 </div> --}}
                               </div>
                            </div>
                         </div>
@@ -71,8 +43,7 @@
                            <i class="flaticon-industrial-robot"></i>
                         </div>
                         <div class="sm-services__text">
-                           <span>Service 01</span>
-                           <h4>Industrial Business</h4>
+                           <h4>Experienced Workforce</h4>
                         </div>
                      </div>
                   </div>
@@ -82,8 +53,7 @@
                            <i class="flaticon-industrial"></i>
                         </div>
                         <div class="sm-services__text">
-                              <span>Service 02</span>
-                           <h4>Manufacture Factory</h4>
+                           <h4>Quality & Safety Standards</h4>
                         </div>
                      </div>
                   </div>
@@ -93,8 +63,7 @@
                            <i class="flaticon-manufacturing"></i>
                         </div>
                         <div class="sm-services__text">
-                              <span>Service 03</span>
-                           <h4>Scientific Laboratories</h4>
+                           <h4>Reliable Project Delivery</h4>
                         </div>
                      </div>
                   </div>
@@ -104,8 +73,7 @@
                            <i class="flaticon-helmet"></i>
                         </div>
                         <div class="sm-services__text">
-                              <span>Service 04</span>
-                           <h4>Financial Corporates</h4>
+                           <h4>Modern Equipment & Technology</h4>
                         </div>
                      </div>
                   </div>
@@ -151,7 +119,7 @@
                      <p class="sm-text mb-15">{{ $about->glimbse ?? '' }}</p>
                      <p class="abd-text">{!! $about->our_journey ?? '' !!}</p>
                      <div class="ab-button mb-10">
-                        <a href="{{ route('users.aboutus') }}" class="tp-btn-d">Learn More</a>
+                        <a href="{{ route('users.aboutus') }}" class="tp-btn-d">More Details</a>
                      </div>
                   </div>
                </div>
@@ -161,22 +129,20 @@
       <!-- about__area end -->
 
       <!-- services-area start -->
-      <section class="services-area grey-bg-5 pt-120 pb-115 fix">
+      <section class="services-area grey-bg-5 pt-50 pb-20 fix">
          <div class="container">
             <div class="row">
                <div class="col-xl-6">
                   <div class="ab-left-content">
                      <div class="section__wrapper mb-30">
-                        <h4 class="section__title">Don't need to look very far to get a better perspective</h4>
+                        <h4 class="section__title">Delivering Reliable Contracting & Industrial Solutions</h4>
                         <div class="r-text">
                            <span>services</span>
                         </div>
                      </div>
-                     <p class="sm-text mb-45">Our mission is to provide quality English language instruction a
-                        variety of courses to international and local students in a
-                        professional and supportive atmosphere .</p>
+                     <p class="sm-text mb-45">We provide reliable contracting, industrial, and maintenance services across Saudi Arabia with a focus on quality, safety, and efficiency.</p>
                      <div class="ab-button mb-30">
-                        <a href="about.html" class="tp-btn-ts">Get In Touch <i class="fal fa-angle-right"></i></a>
+                        <a href="{{ route('users.services') }}" class="tp-btn-d">More Services <i class="fal fa-angle-right"></i></a>
                      </div>
                   </div>
                </div>
@@ -251,7 +217,7 @@
             <div class="row">
                <div class="col-xl-12">
                   <div class="brand__title text-center">
-                     <span>Happy Sponsor</span>
+                     <span>Happy Clients</span>
                   </div>
                </div>
             </div>
@@ -281,27 +247,24 @@
                <div class="col-xl-6 col-lg-6">
                   <div class="feature__left mb-40">
                      <div class="section__wrapper mb-45">
-                        <h4 class="section__title">Commercial Ministry to Hike Import Duty on Aluminium</h4>
-                        <div class="r-text">
-                           <span>features</span>
+                        <h4 class="section__title">Your Trusted Partner in Contracting Solutions</h4>
+                        <div class="r-text" style="margin-left: -10px;">
+                           <span>Specialities</span>
                         </div>
                      </div>
                      <div class="feature__list">
                         <ul>
-                           <li><a href="services-details.html">Banking & finance solutions <i class="fa-light fa-arrow-right-long"></i></a></li>
-                           <li><a href="services-details.html">Ecommend resources relevant <i class="fa-light fa-arrow-right-long"></i></a></li>
-                           <li><a href="services-details.html">Speed up the wireframing process <i class="fa-light fa-arrow-right-long"></i></a></li>
-                           <li><a href="services-details.html">Loved by people across <i class="fa-light fa-arrow-right-long"></i></a></li>
+                           <li><a href="#">Industry Expertise</a></li>
+                           <li><a href="#">Customized Project Solutions</a></li>
+                           <li><a href="#">Strong Resource Network</a></li>
+                           <li><a href="#">Client-Focused Approach</a></li>
                         </ul>
                      </div>
                   </div>
                </div>
                <div class="col-xl-6 col-lg-6">
                   <div class="feature__images w-img mb-40">
-                     <img src="assets/img/feature/fet-01.jpg" alt="">
-                     <div class="vide-button">
-                        <a href="https://www.youtube.com/watch?v=o4GuSJYSzrY" class="popup-video"><i class="fa-solid fa-play"></i></a>
-                     </div>
+                     <img src="assets/img/feature/why.webp" alt="Construction engineers discussing project plans at site in Saudi Arabia">
                   </div>
                </div>
             </div>
@@ -312,15 +275,15 @@
       <!-- testimonial__area start -->
       <section class="testimonial__area grey-bg-5 pt-120 pb-120 fix">
          <div class="testimonial__right-bg">
-            <img src="assets/img/testimonial/testimonial-bg-1.jpg" alt="">
+            <img src="{{ asset('assets/img/testimonial/testimonial-bg-1.jpg') }}" alt="">
          </div>
          <div class="container">
             <div class="row">
                <div class="col-xl-6">
                   <div class="section__wrapper mb-45">
-                     <h4 class="section__title">Best innovations in the metallurgy today</h4>
-                     <div class="r-text">
-                        <span>feedback</span>
+                     <h4 class="section__title">What Our Clients Say</h4>
+                     <div class="r-text" style="margin-left: -10px;">
+                        <span>Testimonials</span>
                      </div>
                   </div>
                </div>
@@ -358,12 +321,12 @@
                      <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                            <div class="image-1 w-img">
-                              <img src="assets/img/process/process-1.jpg" alt="">
+                              <img src="{{ asset('assets/img/process/process1.webp') }}" alt="Construction planning tools and blueprints representing project planning process">
                            </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                            <div class="image-2 w-img">
-                              <img src="assets/img/process/process-2.jpg" alt="">
+                              <img src="{{ asset('assets/img/process/process-2.jpg') }}" alt="Engineering tools and project checklist representing construction workflow process">
                            </div>
                         </div>
                      </div>
@@ -372,7 +335,7 @@
                <div class="col-xl-6">
                   <div class="process__right">
                      <div class="section__wrapper mb-55">
-                        <h4 class="section__title">Commercial Ministry Hike Import Duty on Aluminium</h4>
+                        <h4 class="section__title">Our Simple Process For Successful Project Delivery</h4>
                         <div class="r-text">
                            <span>Process</span>
                         </div>
@@ -381,43 +344,34 @@
                         <div class="process__list-item mb-30">
                            <div class="process__list-info">
                               <div class="process__list-icon">
-                                 <img src="assets/img/icon/picon-1.png" alt="">
+                                 <img src="{{ asset('assets/img/icon/picon-1.png') }}" alt="Project consultation icon representing project analysis and requirement discussion">
                               </div>
                               <div class="process__list-content">
-                                 <span>Process 01</span>
-                                 <h5><a href="services-details.html">Discuss About Project</a></h5>
+                                 <h5><a href="#">Project Consultation</a></h5>
+                                 <span>We discuss your project requirements, objectives, and expectations to understand the scope and deliver the best possible solution.</span>
                               </div>
-                           </div>
-                           <div class="process__list-sp-icon">
-                              <a href="services-details.html"><i class="fa-light fa-arrow-right-long"></i></a>
                            </div>
                         </div>
                         <div class="process__list-item mb-30">
                            <div class="process__list-info">
                               <div class="process__list-icon">
-                                 <img src="assets/img/icon/picon-2.png" alt="">
+                                 <img src="{{ asset('assets/img/icon/picon-2.png') }}" alt="Project planning icon representing project design and development">
                               </div>
                               <div class="process__list-content">
-                                 <span>Process 02</span>
-                                 <h5><a href="services-details.html">Find Easy Solution</a></h5>
+                                 <h5><a href="#">Planning & Execution</a></h5>
+                                 <span>Our team prepares detailed plans, allocates resources, and executes the project efficiently while maintaining safety and quality.</span>
                               </div>
-                           </div>
-                           <div class="process__list-sp-icon">
-                             <a href="services-details.html"><i class="fa-light fa-arrow-right-long"></i></a>
                            </div>
                         </div>
                         <div class="process__list-item mb-30">
                            <div class="process__list-info">
                               <div class="process__list-icon">
-                                 <img src="assets/img/icon/picon-3.png" alt="">
+                                 <img src="{{ asset('assets/img/icon/picon-3.png') }}" alt="Quality inspection icon representing project monitoring and final delivery process">
                               </div>
                               <div class="process__list-content">
-                                 <span>Process 03</span>
-                                 <h5><a href="services-details.html">Troubleshooting</a></h5>
+                                 <h5><a href="#">Quality Inspection & Delivery</a></h5>
+                                 <span>We perform thorough inspections to ensure quality standards are met before successfully delivering the completed project.</span>
                               </div>
-                           </div>
-                           <div class="process__list-sp-icon">
-                              <a href="services-details.html"><i class="fa-light fa-arrow-right-long"></i></a>
                            </div>
                         </div>
                      </div>
