@@ -125,7 +125,9 @@
                         </div>
                      </div>
                      <div class="col-xl-12">
+                        <div class="ajax-response mb-3"></div> 
                         <form id="contact-form" action="{{ route('send.email') }}" method="POST">
+                           @csrf
                            <div class="row">
                               <div class="col-lg-6">
                                  <div class="contact-filed mb-20">
@@ -148,7 +150,6 @@
                            <div class="form-submit text-center">
                                <button class="tp-btn-d" type="submit">Submit Request</button>
                            </div>
-                           <p class="ajax-response"></p>
                        </form>
                      </div>
                   </div>
@@ -174,3 +175,52 @@
 
       <!-- footer start -->
    </x-userlayout> 
+   <script>
+   $(document).ready(function(){
+
+      $('#contact-form').off('submit').on('submit', function(e){
+         e.preventDefault();
+
+         let form = $(this);
+         let submitBtn = form.find('button[type="submit"]');
+         let url = form.attr('action');
+
+         // disable button
+         submitBtn.prop('disabled', true);
+
+         $('.ajax-response').html('');
+
+         $.ajax({
+               type: "POST",
+               url: url,
+               data: form.serialize(),
+               dataType: "json",
+               success: function(response){
+                  if(response.success){
+                     $('.ajax-response').html('<div class="alert alert-success">'+response.success+'</div>');
+                     form.trigger('reset');
+                  } else if(response.error){
+                     $('.ajax-response').html('<div class="alert alert-danger">'+response.error+'</div>');
+                  }
+               },
+               error: function(xhr){
+                  let errMsg = '⚠ Something went wrong. Please try again.';
+                  if(xhr.status === 422){
+                     errMsg = '';
+                     $.each(xhr.responseJSON.errors, function(key, value){
+                           errMsg += '<p>' + value[0] + '</p>';
+                     });
+                  } else if(xhr.responseJSON && xhr.responseJSON.error){
+                     errMsg = xhr.responseJSON.error;
+                  }
+                  $('.ajax-response').html('<div class="alert alert-danger">' + errMsg + '</div>');
+               },
+               complete: function(){
+                  submitBtn.prop('disabled', false);
+               }
+         });
+
+      });
+
+   });
+   </script>

@@ -98,21 +98,25 @@ class UserPageController extends Controller
     public function sendEmail(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name'      => 'required|string|max:255',
-            'email'     => 'nullable|string|max:100',
-            'message'   => 'nullable|string|max:1000',
+            'name'     => 'required|string|max:255',
+            'email'    => 'nullable|email|max:100',
+            'message'  => 'nullable|string|max:1000',
+            'checkbox' => 'accepted'
         ]);
-    
+
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return response()->json(['errors' => $validator->errors()], 422);
         }
 
         try {
-            Mail::to('info@sabaasfar-sa.com')->send(new ContactFormMail($request->all()));
-            return redirect()->back()->with('success_message', 'Your message has been sent successfully.');
+            Mail::to('info@apexsoftlabs.com')->send(new ContactFormMail($request->all()));
+
+            // No need for Mail::failures() in Laravel 9/10
+            return response()->json(['success' => '✅ Your message has been sent successfully.']);
+
         } catch (\Exception $e) {
             Log::error('Mail Send Error: ' . $e->getMessage());
-            return redirect()->back()->with('error_message', 'Sorry there was an error sending your form.');
+            return response()->json(['error' => 'SMTP Error: ' . $e->getMessage()], 500);
         }
     }
 }
